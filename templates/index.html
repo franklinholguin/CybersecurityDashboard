@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cybersecurity Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Cybersecurity Dashboard</h1>
+    
+    <h2>Port Scanner</h2>
+    <form method="post">
+        <button type="submit" name="scan">Scan Ports (1-100)</button>
+    </form>
+    <ul>
+        {% for port in ports %}
+            <li>Port {{ port }} is open</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Password Checker</h2>
+    <form method="post">
+        <input type="password" name="password" placeholder="Enter password">
+        <button type="submit" name="check">Check Strength</button>
+    </form>
+    <p>{{ password_result }}</p>
+</body>
+</html>
